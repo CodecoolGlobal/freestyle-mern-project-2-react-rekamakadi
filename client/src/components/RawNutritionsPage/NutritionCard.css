@@ -1,0 +1,23 @@
+
+.fill-data{
+    text-align: center;
+    color: black;
+   
+    background-color: whitesmoke;
+    width: 200px;
+    height: 300px;
+    border:#153544 solid 5px;
+    border-radius: 25%;
+    box-shadow: 0 0 20px #9ecaed;
+    padding: 20px;
+  }
+
+
+.nutrition-card{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
