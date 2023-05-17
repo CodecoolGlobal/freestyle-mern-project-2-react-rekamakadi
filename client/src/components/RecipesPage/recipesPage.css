@@ -1,6 +1,7 @@
 .recipes-page {
   display: grid;
-  margin: 0 auto 0 auto;
+  grid-template-columns: 1fr 3fr 1fr;
+  margin: 0 auto auto auto;
   padding-bottom: 20px;
   justify-content: center;
   text-align: center;
@@ -85,6 +86,42 @@ a {
   cursor: pointer;
 }
 
+.detailed-filters,
+.active-filters {
+  overflow-x: hidden;
+  background-color: grey;
+  border: 1px solid whitesmoke;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.filter-bubble {
+  display: inline-block;
+  color: black;
+  background-color: aqua;
+  padding: 5px;
+  border: 1px solid lightslategray;
+  border-radius: 10px;
+}
+
+.filter-bubble:hover {
+  cursor: pointer;
+}
+
+.filter-type {
+  max-height: 150px;
+  overflow-y: scroll;
+  border: 2px solid lightgray;
+  border-radius: 15px;
+  padding: 3px;
+  min-height: 75px;
+}
+
+.active-bubble {
+  background-color: lightgreen;
+}
+
 /* MODAL */
 .modal-overlay {
   position: fixed;
@@ -130,7 +167,6 @@ a {
 
 .modal-ingredients-wrapper {
   max-height: 100%;
- 
 }
 
 .modal-ingredients-wrapper > ul:nth-child(1)::-webkit-scrollbar {

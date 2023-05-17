@@ -1,6 +1,7 @@
 // UNUSED FILE
 // FOR FUTURE CONTENT
 
+
 //diet
 export const DIET_LABELS = [
     "Balanced",
@@ -50,66 +51,76 @@ export const HEALTH_LABELS = [
 
 //mealType
 export const MEAL_TYPE = [
-    "breakfast",
-    "brunch",
-    "lunch/dinner",
-    "snack",
-    "teatime"
+    "Breakfast",
+    "Brunch",
+    "Lunch",
+    "Dinner",
+    "Snack",
+    "Teatime"
 ];
 
 //cuisineType
 export const CUISINE_TYPE = [
-    "american",
-    "asian",
-    "british",
-    "caribbean",
-    "central europe",
-    "chinese",
-    "eastern europe",
-    "french",
-    "greek",
-    "indian",
-    "italian",
-    "japanese",
-    "korean",
-    "kosher",
-    "mediterranean",
-    "mexican",
-    "middle eastern",
-    "nordic",
-    "south american",
-    "south east asian",
-    "world"
+    "American",
+    "Asian",
+    "British",
+    "Caribbean",
+    "Central Europe",
+    "Chinese",
+    "Eastern Europe",
+    "French",
+    "Greek",
+    "Indian",
+    "Italian",
+    "Japanese",
+    "Korean",
+    "Kosher",
+    "Mediterranean",
+    "Mexican",
+    "Middle Eastern",
+    "Nordic",
+    "South American",
+    "South East Asian",
+    "World"
 ];
 
 //dishType
 export const DISH_TYPE = [
-    "alcohol cocktail",
-    "biscuits and cookies",
+    "Alcohol Cocktail",
+    "Biscuits and Cookies",
     "bread",
     "cereals",
-    "condiments and sauces",
-    "desserts",
-    "drinks",
-    "egg",
-    "ice cream and custard",
-    "main course",
-    "pancake",
-    "pasta",
-    "pastry",
-    "pies and tarts",
-    "pizza",
-    "preps",
-    "preserve",
-    "salad",
-    "sandwiches",
-    "seafood",
-    "side dish",
-    "soup",
-    "special occasions",
-    "starter",
-    "sweets"
+    "condiments and Sauces",
+    "Desserts",
+    "Drinks",
+    "Egg",
+    "Ice cream and custard",
+    "Main course",
+    "Pancake",
+    "Pasta",
+    "Pastry",
+    "Pies and tarts",
+    "Pizza",
+    "Preps",
+    "Preserve",
+    "Salad",
+    "Sandwiches",
+    "Seafood",
+    "Side dish",
+    "Soup",
+    "Special occasions",
+    "Starter",
+    "Sweets"
 ];
+
+export const FILTER_COLLECTION = {
+  diet: DIET_LABELS.sort((a,b) => a < b ? -1 : 1),
+  health: HEALTH_LABELS.sort((a,b) => a < b ? -1 : 1),
+  mealType: MEAL_TYPE.sort((a,b) => a < b ? -1 : 1),
+  cuisineType: CUISINE_TYPE.sort((a,b) => a < b ? -1 : 1),
+  dishType: DISH_TYPE.sort((a,b) => a < b ? -1 : 1)
+}
+
 
 
 /*

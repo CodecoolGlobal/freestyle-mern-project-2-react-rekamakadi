@@ -1,7 +1,7 @@
 import { useState } from "react";
 //import Filters from "./Filters"; 
 
-function SearchBar ({ updateResults, setLoadedData }) {
+function SearchBar ({ updateResults, setLoadedData, filters }) {
     const [loading, setLoading] = useState(false);
     //TODO: LOADING CIRCLE
 
@@ -19,7 +19,8 @@ function SearchBar ({ updateResults, setLoadedData }) {
             process.env.REACT_APP_SEARCH_URL,
             searchParams,
             setLoading,
-            updateResults
+            updateResults,
+            filters
         );
         
     }
@@ -36,18 +37,22 @@ function SearchBar ({ updateResults, setLoadedData }) {
     );
 }
 
-function fetchData(url, obj, setLoading, updateResults) {
+function fetchData(url, searchParams, setLoading, updateResults, searchFilters) {
     setLoading(true);
     let fetchURL = url + "?";
 
-    if (Object.keys(obj).length > 0) {
-        for (const [key, value] of Object.entries(obj)) {
+    if (Object.keys(searchParams).length > 0) {
+        for (const [key, value] of Object.entries(searchParams)) {
             fetchURL += `${key}=${value}&`;
-            // TODO: fetch URL ends with "&="
         }
     }
 
-    
+    if (Object.keys(searchFilters).length > 0) {
+      for (const [type, filters] of Object.entries(searchFilters)) {
+        fetchURL += filters.map(filter => `${type}=${filter.toLowerCase().split(" ").join("-")}&`).join("");
+      }
+    }
+
     fetch(fetchURL)
         .then(res => res.json())
         .then(data => {

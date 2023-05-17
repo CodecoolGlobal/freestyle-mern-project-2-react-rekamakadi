@@ -3,13 +3,16 @@ import SearchBar from "./SearchBar";
 import DisplayCards from "./DisplayCards";
 import './recipesPage.css';
 import RecipeModal from "./RecipeModal";
-
-
+import Filters from "./Filters";
+import { FILTER_COLLECTION } from "./constants";
 
 function RecipesPage() {
     const [searchResults, setSearchResults] = useState(null);
     const [loadedData, setLoadedData] = useState([]);
     const [page, setPage] = useState(0);
+
+    const [activeFilters, setActiveFilters] = useState({});
+    const [inactiveFilters, setInactiveFilters] = useState(FILTER_COLLECTION);
     
     const [nextBtn, setNextBtn] = useState(null);
     const maxPage = useRef(0);
@@ -17,8 +20,8 @@ function RecipesPage() {
     const [showRecipeModal, setShowRecipeModal] = useState(false);
     const [viewRecipeData, setViewRecipeData] = useState([]);
 
+
     useEffect(() => {
-        console.log(searchResults)
         if (searchResults == null) return;
         if (searchResults._links?.next?.href) {
             setNextBtn(searchResults._links.next.href);
@@ -38,7 +41,6 @@ function RecipesPage() {
             setSearchResults(loadedData[page + 1])
         }
         setPage(page + 1);
-
     }
 
     function onPrev() {
@@ -52,16 +54,43 @@ function RecipesPage() {
         .then(data => setSearchResults({hits: data}))
     }
 
+    function handleRemoveFilter(type, filter) {
+      const tempActiveFilters = structuredClone(activeFilters);
+      const delIndex = tempActiveFilters[type].findIndex(f => f === filter);
+      tempActiveFilters[type].splice(delIndex, 1);
+
+      if (tempActiveFilters[type].length < 1) {
+        delete tempActiveFilters[type];
+      }
+      setActiveFilters(tempActiveFilters);
+
+      let newInactiveFilters = structuredClone(inactiveFilters);
+      newInactiveFilters[type].push(filter)
+      newInactiveFilters[type].sort((a,b) => a < b ? -1 : 1);
+      setInactiveFilters(newInactiveFilters);  
+    }
+
     return (
     <div className="recipes-page">
-        <h2 className="page-title">Recipes</h2>
-        <SearchBar
-            key={"searchBar"}
-            updateResults={setSearchResults}
-            setLoadedData={setLoadedData}
-        />
-        <button className="show-fav-btn" onClick={showFavs}>Show favourites</button>
-        {searchResults && 
+      <div className="detailed-filters">
+          <Filters
+            filters={activeFilters}
+            setFilters={setActiveFilters}
+            inactiveFilters={inactiveFilters}
+            setInactiveFilters={setInactiveFilters}
+          
+          />
+      </div>
+      <div className="search-container">
+          <h2 className="page-title">Recipes</h2>
+          <SearchBar
+              key={"searchBar"}
+              updateResults={setSearchResults}
+              setLoadedData={setLoadedData}
+              filters={activeFilters}
+          />
+          <button className="show-fav-btn" onClick={showFavs}>Show favorites</button>
+          {searchResults ? (
         <>
         <div className="results-box">
             <DisplayCards
@@ -71,6 +100,7 @@ function RecipesPage() {
                 setViewRecipeData={setViewRecipeData}
             />
         </div>
+
         <div className="pn-btns">
             <button
                 disabled={page === 0}
@@ -83,13 +113,38 @@ function RecipesPage() {
                 >Next
             </button>
         </div>
+
         </>
-        }
-        {showRecipeModal && viewRecipeData && <RecipeModal
+        ) : (
+          <div>asd</div>
+        )}
+      </div>
+
+      <div className="active-filters">
+          <h2>Active filters</h2>
+          {Object.keys(activeFilters).map(filterType => (
+            <>
+            <h4 key={filterType+"name"}>{filterType}</h4>
+            <div key={filterType} className="filter-type">
+                {activeFilters[filterType].map(filter => (
+                    <span key={filter+"active"} className="filter-bubble active-bubble"
+                      onClick={() => handleRemoveFilter(filterType, filter)}
+                      >{filter}
+                    </span>
+                ))}
+            </div>
+            </>
+          ))}
+      </div>
+
+        {showRecipeModal && viewRecipeData ? ( <RecipeModal
             key="recipeModal"
             data={viewRecipeData}
             setShowRecipeModal={setShowRecipeModal}
-        />}
+        />
+        ) : (
+          <div className="modal-placeholder"></div>
+        )}
     </div>
     );
 }

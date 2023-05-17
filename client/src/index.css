@@ -15,6 +15,11 @@ code {
 #root {
   min-height: 100vh;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
 .nav-btns {
   margin: 0 auto 0 auto;
   text-align: center;
