@@ -92,15 +92,12 @@ function RecipesPage() {
           <button className="show-fav-btn" onClick={showFavs}>Show favorites</button>
           {searchResults ? (
         <>
-        <div className="results-box">
             <DisplayCards
                 key={"searchResult"}
                 data={searchResults}
                 setShowRecipeModal={setShowRecipeModal}
                 setViewRecipeData={setViewRecipeData}
             />
-        </div>
-
         <div className="pn-btns">
             <button
                 disabled={page === 0}
@@ -124,7 +121,7 @@ function RecipesPage() {
           <h2>Active filters</h2>
           {Object.keys(activeFilters).map(filterType => (
             <>
-            <h4 key={filterType+"name"}>{filterType}</h4>
+            <h4 key={filterType+"name"} className="filter-type-name">{filterType.split("_").join(" ")}</h4>
             <div key={filterType} className="filter-type">
                 {activeFilters[filterType].map(filter => (
                     <span key={filter+"active"} className="filter-bubble active-bubble"

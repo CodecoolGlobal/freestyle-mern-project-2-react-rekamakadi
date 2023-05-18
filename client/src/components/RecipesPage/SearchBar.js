@@ -49,7 +49,9 @@ function fetchData(url, searchParams, setLoading, updateResults, searchFilters) 
 
     if (Object.keys(searchFilters).length > 0) {
       for (const [type, filters] of Object.entries(searchFilters)) {
-        fetchURL += filters.map(filter => `${type}=${filter.toLowerCase().split(" ").join("-")}&`).join("");
+        fetchURL += filters.map(filter =>
+          `${type.split("_").join("")}=${filter.toLowerCase().split(" ").join("-")}&`)
+          .join("");
       }
     }
 

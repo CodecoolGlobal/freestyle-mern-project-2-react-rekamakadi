@@ -122,6 +122,15 @@ a {
   background-color: lightgreen;
 }
 
+.filter-type-name {
+  text-transform: capitalize;
+}
+
+.search-not-found {
+  text-align: center;
+  color: lightgrey;
+}
+
 /* MODAL */
 .modal-overlay {
   position: fixed;
