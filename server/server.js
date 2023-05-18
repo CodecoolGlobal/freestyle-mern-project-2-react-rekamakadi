@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const FavoriteRecipe = require('./models/FavoriteRecipes');
+const NutritionHistory = require('./models/NutritionHistoryModel');
 
 const app = express();
 const port = 3001;
@@ -60,4 +61,27 @@ app.delete('/api/recipes/favorite', async (req, res) => {
 
 app.get('/api/recipes/favorite', (req, res) => {
 
+})
+
+app.get('/api/nutritions/history', async (req,res) => {
+    try{
+        const NutritionsHistory = await NutritionHistory.find()
+        return res.json(NutritionsHistory);
+    } catch (err){
+        console.log(err);
+    }
+})
+
+app.post('/api/nutrutions/history', async (req,res)=> {
+    try {
+        const check = await NutritionHistory.findOne({name: req.body.name}).exec();
+        if (!check) {
+            NutritionHistory.create(req.body);
+            res.send(200, "Done");
+        } else {
+        res.send(400, "Error");
+        }
+    } catch (error) {
+        res.send(400, error);
+    }
 })
