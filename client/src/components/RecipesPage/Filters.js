@@ -26,7 +26,7 @@ export default function Filters({ filters, setFilters, inactiveFilters, setInact
     <h2>Filters</h2>
     {filterTypes.map(type => (
         <div key={type} className="filter-type-control">
-            <h3>{type}</h3>
+            <h3 className="filter-type-name">{type.split("_").join(" ")}</h3>
             <div className="filter-type">
               {inactiveFilters[type].map(filter => (
                   <span

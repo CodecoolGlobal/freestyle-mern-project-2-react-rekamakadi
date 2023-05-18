@@ -2,9 +2,11 @@
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   margin: 0 auto auto auto;
-  padding-bottom: 20px;
   justify-content: center;
   text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
   padding-top: 60px;
 }
 
@@ -94,6 +96,7 @@ a {
   border-radius: 15px;
   margin: 5px;
   padding: 5px;
+  min-width: 150px;
 }
 
 .filter-bubble {
@@ -122,12 +125,24 @@ a {
   background-color: lightgreen;
 }
 
+.filter-type-name {
+  text-transform: capitalize;
+}
+
+.search-not-found {
+  text-align: center;
+  color: lightgrey;
+}
+
 /* MODAL */
 .modal-overlay {
   position: fixed;
   background-color: rgba(128, 128, 128, 0.5);
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 }
 
 .modal {
@@ -139,6 +154,7 @@ a {
   width: 50%;
   height: 50vh;
   margin: 20vh auto 0 auto;
+  border: 5px solid rgb(146, 146, 146);
   border-radius: 30px;
   padding: 20px;
 }
