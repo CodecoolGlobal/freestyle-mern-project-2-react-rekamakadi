@@ -121,7 +121,7 @@ function RecipesPage() {
           <h2>Active filters</h2>
           {Object.keys(activeFilters).map(filterType => (
             <>
-            <h4 key={filterType+"name"} className="filter-type-name">{filterType.split("_").join(" ")}</h4>
+            <h3 key={filterType+"name"} className="filter-type-name">{filterType.split("_").join(" ")}</h3>
             <div key={filterType} className="filter-type">
                 {activeFilters[filterType].map(filter => (
                     <span key={filter+"active"} className="filter-bubble active-bubble"
