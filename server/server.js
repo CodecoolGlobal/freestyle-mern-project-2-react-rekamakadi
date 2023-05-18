@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const FavoriteRecipe = require('./models/FavoriteRecipes');
+const FavoriteExercises = require('./models/FavoriteExercises')
 
 const app = express();
 const port = 3001;
@@ -58,6 +59,40 @@ app.delete('/api/recipes/favorite', async (req, res) => {
     }
 });
 
-app.get('/api/recipes/favorite', (req, res) => {
-
+app.get('/api/exercises/favorite', async (req, res) => {
+    try {
+        const favExercises = await FavoriteExercises.find();
+        res.status(200).send(favExercises);
+    } catch (error) {
+        res.status(400).send(error);
+    }
 })
+
+
+app.post('/api/exercises/favorite', async (req, res) => {
+    console.log(req.body);
+    try {
+        const isAdded = await FavoriteExercises.findOne({id: req.body.id}).exec();
+        if (!isAdded) {
+            FavoriteExercises.create(req.body);
+            res.status(200).send('added');
+        } else {
+            res.status(400).send(error);
+        }
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
+app.delete('/api/exercises/favorite', async (req, res) => {
+    try {
+        const isAdded = await FavoriteExercises.findOneAndDelete({id: req.body.id}).exec();
+        if (isAdded) {
+            res.status(200).send('deleted');
+        } else {
+            res.status(400).send(error);
+        }
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});

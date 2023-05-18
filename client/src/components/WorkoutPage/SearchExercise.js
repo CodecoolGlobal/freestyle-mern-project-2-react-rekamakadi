@@ -28,9 +28,15 @@ function SearchExercise() {
                 || exercise.equipment.toLowerCase().includes(search)
                 || exercise.bodyPart.toLowerCase().includes(search)
             )));
-            console.log(searchedExercises)
             setSearch('');
         }
+    }
+
+    const showFav = async (e) => {
+        e.preventDefault()
+        const res = await fetch('http://localhost:3001/api/exercises/favorite');
+        const favExercises = await res.json();
+        setSearchedExercises(favExercises);
     }
 
     return (
@@ -54,6 +60,7 @@ function SearchExercise() {
                                 <button type="submit" className="input-is1">
                                     Search exercises
                                 </button>
+                                <button onClick={showFav}>Show Favorites</button>
                             </div>
                         </div>
                     </div>

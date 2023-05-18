@@ -190,6 +190,7 @@
     align-items: center;
     text-align: center;
     background-color: #fff;
+    z-index: 100;
   }
 
   .gif-details1 {
@@ -220,4 +221,8 @@
 
   .pagination {
     z-index: 0;
+  }
+
+  .check {
+    z-index: 9999;
   }
