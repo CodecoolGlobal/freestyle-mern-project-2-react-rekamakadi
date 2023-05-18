@@ -1,11 +1,11 @@
 #root {
     background-color: black;
 }
-.header{
+.header {
   position:fixed;
 }
 
-.container {
+.container1 {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     font-weight: bold;
@@ -20,12 +20,12 @@
     gap: 1em;
   }
   
-  .input-container {
+  .input-container1 {
     filter: drop-shadow(46px 36px 24px #4090b5) drop-shadow(-55px -40px 25px #9e30a9);
     animation: blinkShadowsFilter 8s ease-in infinite;
   }
   
-  .input-content {
+  .input-content1 {
     display: grid;
     align-content: center;
     justify-items: center;
@@ -34,7 +34,7 @@
     padding-inline: 1em;
   }
   
-  .input-content::before {
+  .input-content1::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -46,7 +46,7 @@
     transition: all 1s ease-in-out;
   }
   
-  .input-content::after {
+  .input-content1::after {
     content: "";
     position: absolute;
     width: 98%;
@@ -58,7 +58,7 @@
     animation: backglitch 50ms linear infinite;
   }
   
-  .input-dist {
+  .input-dist1 {
     z-index: 80;
     display: grid;
     align-items: center;
@@ -69,7 +69,7 @@
     grid-template-columns: 1fr;
   }
   
-  .input-type {
+  .input-type1 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -80,7 +80,7 @@
     border: none;
   }
   
-  .input-is {
+  .input-is1 {
     color: #fff;
     font-size: 0.9rem;
     background-color: transparent;
@@ -93,28 +93,28 @@
     border-bottom: 1px solid hsl(221, 26%, 43%);
   }
   
-  .input-is:hover {
+  .input-is1:hover {
     transition: all 1s ease-in-out;
     background: linear-gradient(90deg, transparent 0%, rgba(102, 224, 255, 0.2) 27%, rgba(102, 224, 255, 0.2) 63%, transparent 100%);
   }
   
-  .input-content:focus-within::before {
+  .input-content1:focus-within::before {
     transition: all 1s ease-in-out;
     background: hsla(0, 0%, 100%, 0.814);
   }
   
-  .input-is:focus {
+  .input-is1:focus {
     outline: none;
     border-bottom: 1px solid hsl(192, 100%, 100%);
     color: hsl(192, 100%, 88%);
     background: linear-gradient(90deg, transparent 0%, rgba(102, 224, 255, 0.2) 27%, rgba(102, 224, 255, 0.2) 63%, transparent 100%);
   }
   
-  .input-is::-moz-placeholder {
+  .input-is1::-moz-placeholder {
     color: hsla(192, 100%, 88%, 0.806);
   }
   
-  .input-is::placeholder {
+  .input-is1::placeholder {
     color: hsla(192, 100%, 88%, 0.806);
   }
   
@@ -168,14 +168,14 @@
     }
   }
 
-  .gif-modal {
+  .gif-modal1 {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .gif-container {
+  .gif-container1 {
     size: fit-content;
     padding: 20px 40px;
     border:#153544 solid 5px;
@@ -187,11 +187,11 @@
     background-color: #fff;
   }
 
-  .gif-details {
+  .gif-details1 {
     word-spacing: 10px;
   }
 
-  .table-cell:hover {
+  .table-cell1:hover {
     size: 150%;
     font-size: 150%;
     border:#153544 solid 2px;

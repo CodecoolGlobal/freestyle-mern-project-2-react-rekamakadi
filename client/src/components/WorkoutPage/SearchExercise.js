@@ -38,11 +38,11 @@ function SearchExercise() {
             <form
                 onSubmit={handleSearch}
                 action=""
-                className="container">
-                <div className="input-container">
-                    <div className="input-content">
-                        <div className="input-dist">
-                            <div className="input-type">
+                className="container1">
+                <div className="input-container1">
+                    <div className="input-content1">
+                        <div className="input-dist1">
+                            <div className="input-type1">
                                 <input
                                     value={search}
                                     onChange={(e) => {
@@ -50,8 +50,8 @@ function SearchExercise() {
                                     } }
                                     placeholder='target / bodypart / equipment'
                                     type='text'
-                                    className="input-is" />
-                                <button type="submit" className="input-is">
+                                    className="input-is1" />
+                                <button type="submit" className="input-is1">
                                     Search exercises
                                 </button>
                             </div>

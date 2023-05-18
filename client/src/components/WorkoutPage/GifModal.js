@@ -15,11 +15,11 @@ function GifModal({setShowModal, exercise}) {
     }
 
     return(
-        <div className="gif-modal container input-container" onClick={handleModal}>
-            <div className="gif-container">
+        <div className="gif-modal1 container1 input-container1" onClick={handleModal}>
+            <div className="gif-container1">
                 <label onClick={handleFavorite}>{exercise.name}</label><br/>{/*<input type="checkbox">{isChecked ? filled : empty}</input>*/}
                 <img src={exercise.gifUrl} alt={exercise.name}></img><br/>
-                <label className="gif-details">{exercise.equipment} - {exercise.bodyPart} - {exercise.target}</label>
+                <label className="gif-details1">{exercise.equipment} - {exercise.bodyPart} - {exercise.target}</label>
             </div>
         </div>
     )
