@@ -15,7 +15,7 @@ export default function NutritionCard({result, setNutritionsFavorites, nutrition
         //console.log(e.target.value)
         const postFetch = async () => {
             try{
-                const res = await fetch('http://localhost:3001/api/nutrutions/history', {
+                const res = await fetch('http://localhost:3001/api/nutritions/history', {
                     method: 'POST',
                     headers:{'Content-Type': 'application/json'},
                     body:JSON.stringify(nutrition)

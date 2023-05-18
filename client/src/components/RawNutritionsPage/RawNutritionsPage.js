@@ -89,11 +89,9 @@ function RawNutritionsPage() {
             </form>
           </div>
           <button onClick={()=> setIsFavorites(!isFavorites)}>{isFavorites ? "Hide Favorites" : "Show Favorites" }</button>
-          {isFavorites ? <NutritionFavorites nutritionsFavorites={nutritionsFavorites}/>
+          {isFavorites ? <NutritionFavorites setNutritionsFavorites={setNutritionsFavorites} nutritionsFavorites={nutritionsFavorites}/>
           : < NutritionCard setNutritionsFavorites={setNutritionsFavorites} nutritionsFavorites={nutritionsFavorites} fetchFavorites={fetchFavorites} result={result}/>}
           
-         
-         
     </div>
 
 

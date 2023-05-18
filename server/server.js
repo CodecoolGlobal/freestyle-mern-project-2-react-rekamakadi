@@ -72,7 +72,7 @@ app.get('/api/nutritions/history', async (req,res) => {
     }
 })
 
-app.post('/api/nutrutions/history', async (req,res)=> {
+app.post('/api/nutritions/history', async (req,res)=> {
     try {
         const check = await NutritionHistory.findOne({name: req.body.name}).exec();
         if (!check) {
@@ -85,3 +85,16 @@ app.post('/api/nutrutions/history', async (req,res)=> {
         res.send(400, error);
     }
 })
+
+app.delete('/api/nutritions/history', async (req, res) => {
+    try {
+        const check = await NutritionHistory.findOneAndDelete({name: req.body.name}).exec();
+        if (check) {
+            res.send(200, "Deleted");
+        } else {
+        res.send(400, "Error");
+        }
+    } catch (error) {
+        res.send(400, error);
+    }
+});
