@@ -116,9 +116,9 @@ export const DISH_TYPE = [
 export const FILTER_COLLECTION = {
   diet: DIET_LABELS.sort((a,b) => a < b ? -1 : 1),
   health: HEALTH_LABELS.sort((a,b) => a < b ? -1 : 1),
-  mealType: MEAL_TYPE.sort((a,b) => a < b ? -1 : 1),
-  cuisineType: CUISINE_TYPE.sort((a,b) => a < b ? -1 : 1),
-  dishType: DISH_TYPE.sort((a,b) => a < b ? -1 : 1)
+  meal_Type: MEAL_TYPE.sort((a,b) => a < b ? -1 : 1),
+  cuisine_Type: CUISINE_TYPE.sort((a,b) => a < b ? -1 : 1),
+  dish_Type: DISH_TYPE.sort((a,b) => a < b ? -1 : 1)
 }
 
 

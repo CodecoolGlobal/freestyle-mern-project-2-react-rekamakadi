@@ -49,7 +49,17 @@ function fetchData(url, searchParams, setLoading, updateResults, searchFilters) 
 
     if (Object.keys(searchFilters).length > 0) {
       for (const [type, filters] of Object.entries(searchFilters)) {
-        fetchURL += filters.map(filter => `${type}=${filter.toLowerCase().split(" ").join("-")}&`).join("");
+        fetchURL += filters.map(filter => {
+          const tempType = type.split("_").join("");
+          let tempFilter = filter.toLowerCase().trim()
+          if (filter.trim().includes(" ")) {
+            tempFilter = tempFilter.split(" ").join("-");
+          }
+
+          return `${tempType}=${tempFilter}&`;
+        }
+          )
+          .join("");
       }
     }
 
