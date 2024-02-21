@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FILTER_COLLECTION } from "./constants"
 
 export default function Filters({ filters, setFilters, inactiveFilters, setInactiveFilters }) {
-  const [filterTypes, setFilterTypes] = useState(Object.keys(FILTER_COLLECTION));
+  const [filterTypes] = useState(Object.keys(FILTER_COLLECTION));
 
   function handleAddFilter(type, filter) {
     let newActiveFilters = structuredClone(filters);

@@ -14,23 +14,21 @@ function DisplayCards({ data, setShowRecipeModal, setViewRecipeData }) {
   } 
 
   return (
-    <>
     <div className="results-box">
       {data.hits.map(rec => (
         <div
-        key={rec.recipe.uri}
-        className="recipe"
-        onClick={() => showModal(rec)}>
+          key={rec.recipe.uri}
+          className="recipe"
+          onClick={() => showModal(rec)}
+        >
           <p>{rec.recipe.label}</p>
           <img
             alt={rec.recipe.label}
             src={rec.recipe.images.THUMBNAIL.url}
-            />
-            
+          />
         </div>
       ))}
     </div>
-    </>
   )
 }
 

@@ -51,15 +51,14 @@ function fetchData(url, searchParams, setLoading, updateResults, searchFilters) 
       for (const [type, filters] of Object.entries(searchFilters)) {
         fetchURL += filters.map(filter => {
           const tempType = type.split("_").join("");
-          let tempFilter = filter.toLowerCase().trim()
+          let tempFilter = filter.toLowerCase().trim();
           if (filter.trim().includes(" ")) {
             tempFilter = tempFilter.split(" ").join("-");
           }
 
           return `${tempType}=${tempFilter}&`;
-        }
-          )
-          .join("");
+        })
+        .join("");
       }
     }
 

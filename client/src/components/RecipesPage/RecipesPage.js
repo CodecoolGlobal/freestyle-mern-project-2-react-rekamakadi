@@ -78,7 +78,6 @@ function RecipesPage() {
             setFilters={setActiveFilters}
             inactiveFilters={inactiveFilters}
             setInactiveFilters={setInactiveFilters}
-          
           />
       </div>
       <div className="search-container">
@@ -90,7 +89,7 @@ function RecipesPage() {
               filters={activeFilters}
           />
           <button className="show-fav-btn" onClick={showFavs}>Show favorites</button>
-          {searchResults ? (
+          {searchResults && (
         <>
             <DisplayCards
                 key={"searchResult"}
@@ -98,22 +97,20 @@ function RecipesPage() {
                 setShowRecipeModal={setShowRecipeModal}
                 setViewRecipeData={setViewRecipeData}
             />
-        <div className="pn-btns">
-            <button
-                disabled={page === 0}
-                onClick={onPrev}
-                >Prev
-            </button>
-            <button
-                disabled={nextBtn ? false : true}
-                onClick={onNext}
-                >Next
-            </button>
-        </div>
+            <div className="pn-btns">
+                <button
+                    disabled={page === 0}
+                    onClick={onPrev}
+                    >Prev
+                </button>
+                <button
+                    disabled={nextBtn ? false : true}
+                    onClick={onNext}
+                    >Next
+                </button>
+            </div>
 
         </>
-        ) : (
-          <div>asd</div>
         )}
       </div>
 
